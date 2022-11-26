@@ -9,3 +9,11 @@ export const FriendListItem = ({ friends: { avatar, name, isOnline } }) => {
     </div>
   );
 };
+
+FriendListItem.propTypes = {
+  friends: PropTypes.shape({
+    avatar: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    isOnline: PropTypes.bool.isRequired,
+  }).isRequired,
+};
