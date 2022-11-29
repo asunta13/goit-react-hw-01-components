@@ -24,12 +24,16 @@ export const StatList = styled.ul`
   padding: 0;
 `;
 
+function getRandomHexColor(index) {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+}
+
 export const Item = styled.li`
   width: 100px;
   padding: 10px;
   display: flex;
   flex-direction: column;
-  background-color: azure;
+  background-color: ${props => getRandomHexColor(props.index)};
   border: 1px solid lightgrey;
 `;
 

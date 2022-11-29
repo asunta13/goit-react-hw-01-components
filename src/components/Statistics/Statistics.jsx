@@ -11,10 +11,10 @@ import {
 export const Statistics = ({ title, stats }) => {
   return (
     <StatisticsWrap>
-      <Title>{title}</Title>
+      {title && <Title>{title}</Title>}
       <StatList>
-        {stats.map(({ id, label, percentage }) => (
-          <Item key={id}>
+        {stats.map(({ id, label, percentage }, index) => (
+          <Item key={id} index={index}>
             <Label>{label}</Label>
             <Percentage>{percentage}%</Percentage>
           </Item>
@@ -25,6 +25,7 @@ export const Statistics = ({ title, stats }) => {
 };
 
 Statistics.propTypes = {
+  title: PropTypes.string,
   stats: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
